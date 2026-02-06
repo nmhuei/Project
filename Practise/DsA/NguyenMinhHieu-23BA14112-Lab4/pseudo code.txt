@@ -1,0 +1,25 @@
+pseudo-code
+
+n = input()
+while n % 10 <> 0 do
+	sum = sum + n % 10
+	n = n / 10
+	
+print(sum)
+
+#include <iosteam>
+
+int main(){
+	int n;
+	cout << "Enter a number, N = " 
+	cin << n;
+	
+	int k = n;
+	int sum = 0;
+	while (n % 10 != 0) {
+		sum += n % 10;
+		n /= 10;
+	}  
+	
+	cout << "The degit sum of " << k << " is " << sum << endl;
+}

@@ -1,0 +1,53 @@
+# Explain how a search operation for a key x is performed
+We have a tree and find key x
+
+search (tree, x):
+    if x == tree->val :
+        we find x and complete search
+        
+    if x > tree->val :
+        we search the right node of tree (right subtree) with key x
+    else : 
+        we search the left node of tree (left subtree) with key x
+        
+    if we search fulling the tree but don't find x, tree not have a key x and we terminated process finding key x in the tree
+    
+# Analyze the time complexity of searching
+Best : the key x is in root => The time complexity of searching is O(1)
+worst :
+    h is the height of the tree .We have 2 situation :
+        1. the key x can be find in leaf => The time complexity of searching is O(h)
+        2. the tree don't have key x => The time complexity of searching is O(h)
+
+# Algorithms to traverse the tree
+I use the list to store data and a run variable i to control process:
+fisrtly, i put root in the list, i = 0
+list[0] = 60 then i put the right node and the left node of it into list and increase i (i++) repeat this process until all element in list
+
+then we reverse this list to have the result.
+
+process:
+// init
+list = [60]
+i = 0
+
+// loop 1
+list = [60, 80, 30]
+i = 1
+
+// loop 2
+list = [60, 80, 30, 101, 71]
+i = 2
+
+// loop 3
+list = [60, 80, 30, 101, 71, 33, 13]
+i = 3
+// end process and display result : 13 33 71 101 30 80 60
+
+
+
+    
+    
+
+    
+     

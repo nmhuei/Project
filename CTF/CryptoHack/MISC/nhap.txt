@@ -1,0 +1,27 @@
+LCG
+
+a = 21130680057583
+b = 11
+m = 228147497671065648 (2**48)
+seed = bytes_to_long(urandom(6))
+
+counter = 0
+state = 2**(8*6)
+
+nState = a * state + b (% m)
+get_random_bits = nState >> (48 - k)
+
+get_random_bytes = n 8_bytes_sequence 
+
+Challenge:
+
+plaintext, key, IV = x
+
+id player = sstate1[:8]
+plaintext = sstate1[8:] + sstate2[:8]
+key = sstate2[8:] + sstate3[:8]
+IV = sstate3[8:] + sstate4[0:8]
+
+sstate[0] = (a * seed0 + b) % m >> 40 (catch first 8bits of state[0])
+
+sstate[i+1] = (a * (sstate[0] * 2 ** 48 + x) + b) % m >> 40

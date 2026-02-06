@@ -1,0 +1,13 @@
+import requests, json
+url = "https://web.cryptohack.org/digestive/"
+def sign(username):
+    return requests.get(url + "/sign/" + username).json()
+def verify(msg, signature):
+    return requests.get(url + "/verify/" + msg + "/" + signature).text
+username = "a"
+payload = '{"admin": false, "username": "' + username + '", "admin":true}'
+
+out = sign(username)
+flag = verify(payload, out["signature"])
+print(flag)
+
